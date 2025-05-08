@@ -17,3 +17,15 @@ es = Elasticsearch(
     ssl_show_warn=False,
     ssl_assert_hostname=False,
 )
+
+def create_index(index_name):
+    if not es.indices.exists(index=index_name):
+        es.indices.create(index=index_name, body={
+            "mappings": {
+                "properties": {
+                    "url": {"type": "keyword"},
+                    "title": {"type": "text"},
+                    "abstract": {"type": "text"}
+                }
+            }
+        })
