@@ -1,0 +1,3 @@
+django
+elasticsearch
+python-dotenv
