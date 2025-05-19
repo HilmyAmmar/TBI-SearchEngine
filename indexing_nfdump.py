@@ -78,8 +78,6 @@ logger.info(f"Creating index: {index_name}")
 es.indices.create(index=index_name, body=index_settings)
 
 # Index documents from nfdump.txt
-
-
 def index_nfdump():
     # Much smaller batch size
     batch_size = 25  # Reduce dramatically from 500
@@ -171,13 +169,10 @@ def index_nfdump():
         logger.error(f"Error during indexing: {str(e)}")
         raise
 
-
 # Execute indexing
 index_nfdump()
 
 # Test the index with a simple search
-
-
 def test_search():
     try:
         count = es.count(index=index_name)
@@ -204,7 +199,6 @@ def test_search():
                 f"Sample result - Title: {first_hit.get('title', 'N/A')}")
     except Exception as e:
         logger.error(f"Error testing search: {str(e)}")
-
 
 # Test the index
 test_search()
