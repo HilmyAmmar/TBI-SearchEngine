@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import es_health_check, search
+from .views import es_health_check, search, llm_health_check
 
 urlpatterns = [
     path('es-check/', es_health_check),
     path('search/', search),
+    path('llm-check/', llm_health_check)
 ]
 

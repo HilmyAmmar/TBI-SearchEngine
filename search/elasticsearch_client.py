@@ -7,7 +7,7 @@ load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 es = Elasticsearch(
-    "https://202.10.44.223:9200/",
+    os.getenv("ES_URL"),
     ca_certs=os.path.join(BASE_DIR, "certs", "http_ca.crt"),
     verify_certs=True,
     basic_auth=(
