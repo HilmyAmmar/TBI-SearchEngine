@@ -39,7 +39,7 @@ def expand_query(query: str) -> list[str]:
     prompt = f"""
     You are an intelligent search assistant. Expand the user's query with relevant terms ONLY, without changing the original intent. 
     Do NOT include unrelated meanings, ambiguous words, or overly general terms. 
-    Return exactly 10 highly related keywords or phrases that can help improve search accuracy. 
+    Return EXACTLY 10 highly related query or phrases that can help improve search accuracy. 
     Return the terms separated ONLY by commas, without numbering, newlines, or extra characters.
 
     Query: "{query}"
@@ -125,7 +125,7 @@ def search(request):
 
         return JsonResponse({
             "original_query": query,
-            "expanded_terms": expanded_terms,
+            "expanded_query": expanded_terms,
             "results": results
         })
 
