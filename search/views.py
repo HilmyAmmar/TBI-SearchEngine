@@ -1,3 +1,4 @@
+import re
 from django.http import JsonResponse
 from .elasticsearch_client import es
 from .mistral_client import client
@@ -63,7 +64,8 @@ def expand_query(request):
         prompt = f"""
         You are an intelligent search assistant. Expand the user's query with relevant terms ONLY, without changing the original intent. 
         Do NOT include unrelated meanings, ambiguous words, or overly general terms. 
-        Return 10 highly related keywords or phrases that can help improve search accuracy. Return as comma-separated values.
+        Return exactly 10 highly related keywords or phrases that can help improve search accuracy. 
+        Return the terms separated ONLY by commas, without numbering, newlines, or extra characters.
 
         Query: "{query}"
         """
@@ -77,7 +79,10 @@ def expand_query(request):
 
         expanded_raw = expansion.choices[0].message.content.strip()
 
-        expanded_terms = [term.strip() for term in expanded_raw.split(',') if term.strip()]
+        cleaned = re.sub(r'\d+\.\s*', '', expanded_raw)  
+        cleaned = cleaned.replace('\n', ',')
+
+        expanded_terms = [term.strip() for term in cleaned.split(',') if term.strip()]
 
         return JsonResponse({
             "original_query": query,
