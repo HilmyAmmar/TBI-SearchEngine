@@ -234,10 +234,6 @@ curl http://localhost:8000/health/llm/
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📝 License
-
-[Add your license information here]
-
 ## 🆘 Troubleshooting
 
 ### Common Issues:
