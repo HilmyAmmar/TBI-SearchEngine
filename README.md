@@ -1,6 +1,6 @@
 # TBI-SearchEngine: Medical RAG Search Engine 🔍🏥
 
-A Django-based **Retrieval-Augmented Generation (RAG)** search engine for medical and nutrition information. This system combines Elasticsearch for document retrieval with Mistral AI for intelligent answer generation.
+A Django-based **Retrieval-Augmented Generation (RAG)** search engine for medical and nutrition information. This system combines Elasticsearch for document retrieval with Mistral AI for intelligent answer generation
 
 ## 🌟 Features
 
