@@ -129,12 +129,12 @@ curl "http://localhost:8000/search/?q=what%20causes%20diabetes&k=5"
 
 **Elasticsearch Health:**
 ```http
-GET /health/elasticsearch/
+GET /search/es-check
 ```
 
 **LLM Health:**
 ```http
-GET /health/llm/
+GET /search/llm-check
 ```
 
 ## 🔧 Configuration
@@ -209,10 +209,10 @@ response = requests.get(
 Check system health:
 ```bash
 # Elasticsearch status
-curl http://localhost:8000/health/elasticsearch/
+curl http://localhost:8000/search/es-check
 
 # LLM service status  
-curl http://localhost:8000/health/llm/
+curl http://localhost:8000/search/llm-check
 ```
 
 ## 📊 Data Schema
