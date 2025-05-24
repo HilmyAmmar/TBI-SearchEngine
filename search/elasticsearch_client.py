@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 es = Elasticsearch(
     os.getenv("ES_URL"),
-    ca_certs=os.path.join(BASE_DIR, "certs", "http_ca.crt"),
+    ca_certs=os.getenv("HTTP_CA"),
     verify_certs=True,
     basic_auth=(
         os.getenv("ES_USERNAME"),
